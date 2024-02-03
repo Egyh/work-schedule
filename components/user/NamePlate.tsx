@@ -1,9 +1,10 @@
-type NamePlateProps = {
+// / propsとしてname,commentを受け付ける設定
+export type NamePlateProps = {
 	name: string;
 	comment: string;
 };
 
-export default function NamePlate(props: NamePlateProps) {
+ const NamePlate =(props: NamePlateProps) => {
 	return (
 		<div className="flex w-full border border-gray-300 max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
 			<div className="flex items-center justify-center w-12 bg-emerald-500">
@@ -28,3 +29,4 @@ export default function NamePlate(props: NamePlateProps) {
 		</div>
 	);
 };
+export default NamePlate;
