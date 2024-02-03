@@ -5,8 +5,8 @@ type NamePlateListProps = {
 };
 
 const NamePlateList = (props: NamePlateListProps) => {
-    return props.data.map((NamePlate: NamePlateProps, i) => {
-        return <NamePlate key={i} {...NamePlate} />;
+    return props.data.map((namePlate: NamePlateProps, i) => {
+        return <NamePlate key={i} {...namePlate} />;
     });
 };
 
