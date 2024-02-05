@@ -5,7 +5,7 @@ return (
 			{/* <p>{formTodo.title}</p> */}
 			<form onSubmit={(e) => e.preventDefault()}>
 				<div className="m-2">
-					<label className="text-gray-400">タイトル</label>
+					<label className="text-gray-400">名前</label>
 					<input
 						type="text"
 						// value={formTodo.title}
@@ -15,7 +15,7 @@ return (
 				</div>
 
 				<div className="m-2">
-					<label className="text-gray-400">内容</label>
+					<label className="text-gray-400">コメント</label>
 					<input
 						type="text"
 						// value={formTodo.content}

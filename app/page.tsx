@@ -15,14 +15,17 @@ const Userinfo: NamePlateProps[] = [
   {
     	name: "Hamaguchi",
     	comment: "TODO内容はここに記載します。",
+      status: "Done",
     },
   {
     	name: "Hamaguchi",
     	comment: "TODO内容はここに記載します。",
+      status: "Progress",
     },
   {
     	name: "Hamaguchi",
     	comment: "TODO内容はここに記載します。",
+      status: "Incomplete",
     }
 ]
 
