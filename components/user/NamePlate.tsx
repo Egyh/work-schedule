@@ -1,16 +1,17 @@
 import { FaCheckCircle } from "react-icons/fa";
-import { FaRegCheckCircle } from "react-icons/fa";
+
 
 type Status = "Done" | "Progress" | "Incomplete"
 
-// / propsとしてname,commentを受け付ける設定
-export type NamePlateProps = {
+
+export type Plate = {
 	name: string;
 	comment: string;
 	status: Status;
 };
 
- const NamePlate =(props: NamePlateProps) => {
+ const NamePlate =(props: Plate) => {
+	// 状態に応じて各クラス名、テクストを取得する
 	let statusClassName = {
 		text: "",
 		textColor: "",

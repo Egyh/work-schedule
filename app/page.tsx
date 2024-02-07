@@ -1,9 +1,10 @@
 'use client';
 import Header from "@/components/Header";
-import NamePlate, { NamePlateProps } from "@/components/User/NamePlate";
-import  Form  from "@/components/User/Form";
+import NamePlate from "@/components/User/NamePlate";
+import  UserForm  from "@/components/User/UserForm";
 import Footer from "@/components/Footer";
-import UserList from "@/components/User/NamePlateList";
+import PlateListForm from "@/components/User/NamePlateList"; "@/components/User/NamePlate";
+import React,  { useState } from "react";
 
 
 // const UserInfo = {
@@ -11,30 +12,13 @@ import UserList from "@/components/User/NamePlateList";
 // 	comment: "TODO内容はここに記載します。",
 // };
 
-const Userinfo: NamePlateProps[] = [
-  {
-    	name: "Hamaguchi",
-    	comment: "TODO内容はここに記載します。",
-      status: "Done",
-    },
-  {
-    	name: "Hamaguchi",
-    	comment: "TODO内容はここに記載します。",
-      status: "Progress",
-    },
-  {
-    	name: "Hamaguchi",
-    	comment: "TODO内容はここに記載します。",
-      status: "Incomplete",
-    }
-]
+
 
 export default function Home() {
 	return (
     <>
 		<Header/>
-    <UserList data={Userinfo}/>
-    <Form/>
+    <PlateListForm/>
     <Footer/>
     </>
 	);

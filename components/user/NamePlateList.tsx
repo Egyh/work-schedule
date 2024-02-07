@@ -1,13 +1,47 @@
-import NamePlate, { NamePlateProps} from "@/components/User/NamePlate";
+import React,  { useState } from "react";
+import NamePlate, { Plate } from "./NamePlate";
+import UserForm from "./UserForm";
 
-type NamePlateListProps = {
-    data: Array<NamePlateProps>;
-};
+const PlateListForm = (): JSX.Element => {
+    const [namePlateList, setPlateList] = useState<Plate[]>([
+        {
+            name: "Hamaguchi",
+            comment: "TODO内容はここに記載します。",
+            status: "Done",
+        },
 
-const NamePlateList = (props: NamePlateListProps) => {
-    return props.data.map((namePlate: NamePlateProps, i) => {
-        return <NamePlate key={i} {...namePlate} />;
-    });
-};
+        {
+            name: "Hamaguchi",
+            comment: "TODO内容はここに記載します。",
+            status: "Progress",
+        },
 
-export default NamePlateList;
+        {
+            name: "Hamaguchi",
+            comment: "TODO内容はここに記載します。",
+            status: "Incomplete",
+        }
+        ]);
+    
+    const addPlateOnClick = (plate: Plate) => {
+    
+        const newPlateList = [...namePlateList];
+
+        newPlateList.push(plate);
+        setPlateList(newPlateList);
+        console.log("add");
+    
+    };
+
+    return (
+        <>
+        {namePlateList.map((plate, i) => {
+            return<NamePlate key={i} {...plate}/>
+        })}
+        <UserForm addPlateOnclick={addPlateOnClick}/>
+        </>
+    );
+    };
+
+
+export default PlateListForm;
