@@ -7,6 +7,7 @@ type UserFormProps = {
 
  const UserForm = (props: UserFormProps): JSX.Element => {
 	const [formUser, setFormUser] = useState<Plate>({
+		
 		name: "name",
 		comment: "comment",
 		status: "Done",
