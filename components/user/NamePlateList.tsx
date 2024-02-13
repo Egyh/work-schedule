@@ -1,6 +1,8 @@
+'use client'
 import React,  { useState } from "react";
 import NamePlate, { Plate } from "./NamePlate";
 import UserForm from "./UserForm";
+import usePlateStore from "@/stores/store";
 
 
 const PlateListForm = (): JSX.Element => {

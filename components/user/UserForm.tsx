@@ -1,21 +1,30 @@
 import React,  { useState } from "react";
 import { Plate } from "./NamePlate";
+import usePlateStore from "@/stores/store";
+
+
 
 type UserFormProps = {
 	addPlateOnclick: (plate: Plate) => void;
 }
+
+
 
  const UserForm = (props: UserFormProps): JSX.Element => {
 	const [formUser, setFormUser] = useState<Plate>({
 		
 		name: "name",
 		comment: "comment",
-		status: "Done",
+		status: "Incomplete",
 	});
 
+
+	
 	const handlerAddPlateOnclick = () => {
 		props.addPlateOnclick(formUser);
 	}
+
+	
 
 	const handlerPlateNameFormOnChange = (
 		event: React.ChangeEvent<HTMLInputElement>
@@ -32,6 +41,8 @@ type UserFormProps = {
 		newForm.comment = event.target.value;
 		setFormUser(newForm);
 	};
+
+	
 
 return (
 <div className="w-100 overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
