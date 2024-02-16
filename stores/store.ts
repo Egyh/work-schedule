@@ -3,27 +3,26 @@ import { persist } from 'zustand/middleware';
 
 type Status = "Done" | "Progress" | "Incomplete"
 
- interface Plate  {
+
+export type Plate = {
 	name: string;
 	comment: string;
 	status: Status;
-}
+};
 
-interface PlateState {
-    plate: Plate | null;
-    setPlate: (newPlate: Plate) => void;
+type PlateStore = {
+  formUser: Plate;
+  setFormUser: (plate: Plate) => void;
+};
 
-}
-
-const usePlateStore = create<PlateState>()(
-    persist(
-        (set) => ({
-            plate: null,
-            setPlate: (newPlate: Plate) => set((state) => ({plate: newPlate})),
-        }),
-        {name: 'plate-store'},
-    ),
-)
+const usePlateStore = create<PlateStore>((set) => ({
+    formUser: {
+    name: "name",
+    comment: "comment",
+    status: "Incomplete",
+  },
+  setFormUser: (plate) => set({ formUser: plate }),
+}),);
 
 export default usePlateStore;
 

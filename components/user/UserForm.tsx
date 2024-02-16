@@ -2,7 +2,7 @@ import React,  { useState } from "react";
 import { Plate } from "./NamePlate";
 import usePlateStore from "@/stores/store";
 
-
+type Status = "Done" | "Progress" | "Incomplete"
 
 type UserFormProps = {
 	addPlateOnclick: (plate: Plate) => void;
@@ -11,13 +11,7 @@ type UserFormProps = {
 
 
  const UserForm = (props: UserFormProps): JSX.Element => {
-	const [formUser, setFormUser] = useState<Plate>({
-		
-		name: "name",
-		comment: "comment",
-		status: "Incomplete",
-	});
-
+	const [formUser, setFormUser] = usePlateStore((state) => [state.formUser, state.setFormUser]);
 
 	
 	const handlerAddPlateOnclick = () => {
@@ -41,6 +35,14 @@ type UserFormProps = {
 		newForm.comment = event.target.value;
 		setFormUser(newForm);
 	};
+
+	const handlerStatusFormOnChange = (
+        event: React.ChangeEvent<HTMLSelectElement>
+    ) => {
+        const newForm = { ...formUser };
+        newForm.status = event.target.value as Status;
+        setFormUser(newForm);
+    };
 
 	
 
@@ -68,6 +70,20 @@ return (
 						className="block  rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
 					/>
 				</div>
+
+				<div className="m-2">
+                    <label className="text-gray-400">ステータス</label>
+                    <select
+                        value={formUser.status}
+                        onChange={handlerStatusFormOnChange}
+                        className="block rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    >
+                        <option value="Incomplete">未完了</option>
+                        <option value="Progress">実行中</option>
+                        <option value="Done">完了</option>
+                    </select>
+                </div>
+
 				<div className="m-2">
 					<button
 						onClick={handlerAddPlateOnclick}
