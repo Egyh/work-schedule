@@ -2,7 +2,7 @@ import React,  { useState } from "react";
 import { Plate } from "./NamePlate";
 import usePlateStore from "@/stores/store";
 
-type Status = "Done" | "Progress" | "Incomplete"
+type Status = "OFF" | "ON" | "OUT"
 
 type UserFormProps = {
 	addPlateOnclick: (plate: Plate) => void;
@@ -78,9 +78,9 @@ return (
                         onChange={handlerStatusFormOnChange}
                         className="block rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     >
-                        <option value="Incomplete">未完了</option>
-                        <option value="Progress">実行中</option>
-                        <option value="Done">完了</option>
+                        <option value="OFF">OFF</option>
+                        <option value="ON">ON</option>
+                        <option value="OUT">OUT</option>
                     </select>
                 </div>
 
@@ -88,7 +88,7 @@ return (
 					<button
 						onClick={handlerAddPlateOnclick}
 						className="flex justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-						TODO追加
+						POST
 					</button>
 				</div>
 			</form>

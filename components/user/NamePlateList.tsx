@@ -11,7 +11,7 @@ const PlateListForm = (): JSX.Element => {
             
             name: "Hamaguchi",
             comment: "TODO内容はここに記載します。",
-            status: "Done",
+            status: "OFF",
         },
 
         {
@@ -19,22 +19,22 @@ const PlateListForm = (): JSX.Element => {
             
             name: "Hamaguchi",
             comment: "TODO内容はここに記載します。",
-            status: "Progress",
+            status: "ON",
         },
 
         {
             
             name: "Hamaguchi",
             comment: "TODO内容はここに記載します。",
-            status: "Incomplete",
+            status: "OUT",
         }
         ]);
 
         const [statuses, setStatuses] = useState([
             "All",
-            "Incomplete",
-            "Progress",
-            "Done",
+            "OFF",
+            "ON",
+            "OUT",
         ]);
 
         
@@ -47,7 +47,6 @@ const PlateListForm = (): JSX.Element => {
 
         newPlateList.push(plate);
         setPlateList(newPlateList);
-        console.log("add");
     
     };
 

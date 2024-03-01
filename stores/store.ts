@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-type Status = "Done" | "Progress" | "Incomplete"
+type Status = "OFF" | "ON" | "OUT"
 
 
 export type Plate = {
@@ -19,7 +19,7 @@ const usePlateStore = create<PlateStore>((set) => ({
     formUser: {
     name: "name",
     comment: "comment",
-    status: "Incomplete",
+    status: "OFF",
   },
   setFormUser: (plate) => set({ formUser: plate }),
 }),);

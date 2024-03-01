@@ -1,7 +1,11 @@
 import { FaCheckCircle } from "react-icons/fa";
+import { ImCancelCircle } from "react-icons/im";
+import { GiNightSleep } from "react-icons/gi";
+
+
 import React,  { useState } from "react";
 
-type Status = "Done" | "Progress" | "Incomplete"
+type Status = "OFF" | "ON" | "OUT"
 
 
 export type Plate = {
@@ -19,20 +23,20 @@ export type Plate = {
 	};
 
 	switch (props.status) {
-		case "Done":
-			statusClassName.text = "完了";
-			statusClassName.textColor = "text-emerald-500";
-			statusClassName.bgColor = "bg-emerald-500";
+		case "OFF":
+			statusClassName.text = "OFF";
+			statusClassName.textColor = "text-red-500";
+			statusClassName.bgColor = "bg-red-500";
 			break;
-		case "Progress":
-			statusClassName.text = "実行中";
-			statusClassName.textColor = "text-blue-600";
-			statusClassName.bgColor = "bg-blue-600";
+		case "ON":
+			statusClassName.text = "ON";
+			statusClassName.textColor = "text-emerald-600";
+			statusClassName.bgColor = "bg-emerald-600";
 			break;
-		case "Incomplete":
-			statusClassName.text = "未対応";
-			statusClassName.textColor = "text-gray-600";
-			statusClassName.bgColor = "bg-gray-600";
+		case "OUT":
+			statusClassName.text = "OUT";
+			statusClassName.textColor = "text-yellow-600";
+			statusClassName.bgColor = "bg-yellow-600";
 			break;
 	}
 	
@@ -40,11 +44,18 @@ export type Plate = {
 		<div className="flex w-full border border-gray-300 max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
 			<div
 				className={`flex items-center justify-center w-12 ${statusClassName.bgColor}`}>
-				{props.status === "Done" ? (
-					<FaCheckCircle className="w-6 h-6 text-white fill-current" />
-				) : (
-					<></>
-				)}
+				{props.status === "OFF" ? (
+					<ImCancelCircle className="w-6 h-6 text-white fill-current" />) 
+				
+				: props.status === "ON" ? (					
+					<FaCheckCircle className="w-6 h-6 text-white fill-current" />)
+				: props.status === "OUT" ?(
+					<GiNightSleep className="w-6 h-6 text-white fill-current" />)
+				: (
+				// 上記の条件に一致しない場合はここに何も表示されないようにします
+				<></>
+			  )
+			}
 			</div>
 
 			<div className="px-4 py-2 w-80">
